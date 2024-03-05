@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "build": "node index.js",
+    "dev:server": "nodemon index.js",
+    "postinstall": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.16.2",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "~1.4.6",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.4",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.16.2"
+  }
+}
