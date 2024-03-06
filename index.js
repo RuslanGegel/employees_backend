@@ -5,19 +5,18 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors({
-  origin: [
-    "https://employees-frontend-bice.vercel.app/"
-  ]
-}));
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://employees-frontend-bice.vercel.app/",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  })
+);
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/", (opts) => {
-  return opts.res.send("Express server");
-});
 app.use("/api/user", require("./routes/users"));
 app.use("/api/employees", require("./routes/employees"));
 
